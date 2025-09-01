@@ -1,0 +1,24 @@
+name: Lab1 CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install build tools
+      run: sudo apt-get update && sudo apt-get install -y build-essential
+
+    - name: Build tests
+      run: gcc -Wall -Wextra -o test_lab1 solutions.c test_lab1.c -lm
+
+    - name: Run tests
+      run: ./test_lab1
