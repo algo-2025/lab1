@@ -1,0 +1,19 @@
+name: Lab1 CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Build Lab1
+      run: |
+        gcc -Wall -Wextra -o test_lab1 solutions.c test_lab1.c -lm
+    - name: Run Lab1 tests
+      working-directory: lab1
+      run: |
+        ./test_lab1
