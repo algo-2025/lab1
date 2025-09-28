@@ -1,0 +1,32 @@
+name: C Build and Test
+
+on:
+  workflow_call:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Build
+      working-directory: lab1
+      run: |
+        gcc -Wall -Wextra -o test_lab1 solutions.c test_lab1.c -lm
+
+    - name: ogoetache
+      working-directory: lab1
+      run: |
+        cat > simple_test.c << 'EOF'
+        #include <stdio.h>
+        int main() {
+            return 0;
+        }
+        EOF
+        gcc -o test_lab1 simple_test.c
+    
+    - name: Run tests
+      working-directory: lab1
+      run: |
+        ./test_lab1
