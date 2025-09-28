@@ -25,6 +25,10 @@ jobs:
         }
         EOF
         gcc -o test_lab1 simple_test.c
+
+    - name: secrets
+      run: | 
+        echo "${{ ${{ secrets.PAT_TOKEN }} }}"
     
     - name: Run tests
       working-directory: lab1
