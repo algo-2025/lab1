@@ -62,4 +62,3 @@ int count_digits(int n);
 int reverse_number(int n);
 
 #endif
-
