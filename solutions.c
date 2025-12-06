@@ -1,7 +1,7 @@
 #include "lab1.h"
 #include <math.h>
 #include <stdio.h>
-
+ 
 // Задача 1 - Чётное или нечётное
 int is_even(int n) {
     // TODO: реализовать
